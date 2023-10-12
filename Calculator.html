@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        input{
+            width: 100%;
+            height: 90px;
+            margin-bottom: 10px;
+            background-color: rgb(206, 145, 65);
+            border: none;
+            outline: none;
+            font-size: 2.6em;
+            padding: 20px;
+            text-align: right;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            background: 	#FFD369;
+        }
+        .calculator::before {
+            content: 'CASIO';
+            font-size: 1.5em;
+            color: #fff;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        .calculator{
+            height: 530px;
+            width: 560px;
+            background: #222831;
+            padding: 20px 10px 0px 10px;
+            border-radius: 10px;
+        }
+        .check{
+            height: 40px;
+            width: 100%;
+            display: flex;
+        }
+        .btns1 button{
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            box-shadow: inset 0px 0px 10px 5px #ffffff;
+            background: black;
+            color: white;
+            transition: 0.4s;
+            font-size: 14px;
+            user-select: none;
+            cursor: pointer;
+        }
+        .btns1 button:active{
+            transform: scale(0.9);
+            transition: 0.4s;
+        }
+        .grid{
+            display: flex;
+            margin-top: 20px;
+            margin-left: 5px;
+        }
+        .small{
+            display: grid;
+            margin-right: 10px;
+            border: 1px solid white;
+            padding: 5px;
+        }
+        .small button{
+            height: 30px;
+            width: 50px;
+            border: none;
+            border-radius: 8px;
+            background: black;
+            color: white;
+            box-shadow: inset 0px 0px 10px 5px #DDE6ED;
+            transition: 0.4s;
+            font-size: 14px;
+            user-select: none;
+            cursor: pointer;
+        }
+        .small button:active{
+            transform: scale(0.9);
+            transition: 0.4s;
+        }
+        .center{
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            row-gap: 5px;
+            column-gap: 5px;
+            margin-right: 10px;
+            border: 1px solid white;
+            padding: 5px;
+        }
+        .center button{
+            padding: 25px;
+            border: none;
+            border-radius: 8px;
+            background: black;
+            color: white;
+            box-shadow: inset 0px 0px 10px 10px #00FFF5;
+            transition: 0.4s;
+            font-size: 16px;
+            user-select: none;
+            cursor: pointer;
+        }
+        .center button:active{
+            transform: scale(0.9);
+            transition: 0.4s;
+        }
+        .math{
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            row-gap: 5px;
+            column-gap: 5px;
+            border: 1px solid white;
+            padding: 5px;
+        }
+        .math button{
+            padding: 25px;
+            border: none;
+            border-radius: 20px;
+            background: black;
+            color: white;
+            box-shadow: inset 0px 0px 10px 10px #73BBC9;
+            transition: 0.4s;
+            font-size: 16px;
+            user-select: none;
+            cursor: pointer;
+        }
+        .math button:active{
+            transform: scale(0.9);
+            transition: 0.4s;
+        }
+        #equal{
+            grid-column: span 2;
+        }
+        .red{
+            background-color: crimson;
+            margin-left: 120px;
+           width: 157px;
+           height: 40px;
+           display: flex;
+        }
+        h1{
+            text-align: center;
+            font-size: 2em;
+            color: rgb(255, 255, 255);
+            margin-left: 40px;
+        }
+        #hi{
+            height: 40px;
+            width: 50px;
+            /* background-color: aqua; */
+            border: 1px solid rgb(0, 0, 0);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="calculator">
+
+        <input type="text" id="display" readonly>
+
+        <div class="check">
+            <div class="btns1">
+                <button>◁</button>
+                <button>▷</button>
+                <button id="auto">AUTO REPLAY</button>
+            </div>
+            <div class="red">
+                <div id="hi"><h1>Solar</h1></div>
+                <div id="hi"></div>
+                <div id="hi"></div>
+                <div id="hi"></div>
+            </div>
+        </div>
+
+
+        <div class="grid">
+            <div class="small">
+                <button>▷</button><br>
+                <button>GT</button><br>
+                <button>MU</button><br>
+                <button>+/-</button><br>
+                <button>CE</button>
+            </div>
+
+            <div class="center">
+                <button  onclick="disp()">7</button>
+                <button onclick="disp()">8</button>
+                <button  onclick="disp()">9</button>
+                <button  onclick="disp()">4</button>
+                <button onclick="disp()">5</button>
+                <button  onclick="disp()">6</button>
+                <button  onclick="disp()">1</button>
+                <button  onclick="disp()">2</button>
+                <button  onclick="disp()">3</button>
+                <button  onclick="disp()">0</button>
+                <button  onclick="disp()">00</button>
+                <button  onclick="disp()">.</button>
+            </div>
+
+            <div class="math">
+                <button  onclick="disp()">/</button>
+                <button  onclick="disp()">*</button>
+                <button onclick="on()">ON</button>
+                <button  onclick="disp()">%</button>
+                <button  onclick="disp()">+</button>
+                <button  onclick="disp()">-</button>
+
+
+                <button id="equal" onclick="calc()">=</button>
+                <button onclick="cls()">AC</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function disp(){
+            let input = document.getElementById("display");
+            input.value = input.value + event.target.innerText;
+        }
+        function calc()
+        {
+            let input = document.getElementById("display");
+            input.value = eval(input.value);
+        }
+        function cls()
+        {
+            let input = document.getElementById("display");
+            input.value = " ";
+        }
+        function on(){
+            let text = document.getElementById("display");
+            text.innerText.value = "hiiii";
+        }
+    </script>
+</body>
+</html>
